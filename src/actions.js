@@ -9,3 +9,13 @@ export const addToDo = (val) => {
 };
 
 export const loadToDos = createAction('loadTodos', loadToDosAPI);
+//simplified version of action creator
+// export const loadToDos = () => {
+//     return loadToDosAPI().then(data => {
+//         return {
+//             type: 'loadTodos',
+//             payload: data
+//         };
+//     })
+// }
+//console.log(loadToDos)

@@ -17,13 +17,30 @@ class ToDoList extends React.Component {
                 </button>
                 <button
                     onClick={
-                    () => this.props.addToDo('Test')
+                    () => this.props.addToDo({
+                        task: 'Test',
+                        id: this.props.todos ? this.props.todos.length + 1 : todoId++,
+                        completed: false
+                    })
                 }>
                     Add Test
                 </button>
                 <br />
                 <br />
-                {this.props.todos.map(todo => <div key={todoId++}>{todo}</div>)}
+                {this.props.todos.map(todo =>
+                    <div
+                        key={todo.id}
+                        style={{
+                            'padding': 10
+                        }}
+                    >
+                        id - {todo.id}
+                        <br/>
+                        task -  {todo.task}
+                        <br />
+                        completed - {todo.completed.toString()}
+                    </div>)
+                }
             </div>
         )
     }
@@ -64,4 +81,3 @@ export default App;
 //    </div>
 //
 //);
-
