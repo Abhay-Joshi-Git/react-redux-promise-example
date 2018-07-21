@@ -7,7 +7,14 @@ module.exports = {
     devServer: {
         inline: true,
         contentBase: "./src",
-        port: 8080
+		port: 8080,
+		proxy: {
+			// '/api': 'http://localhost:3000'
+			'/api': {
+				target: 'http://localhost:3000',
+				pathRewrite: {'^/api' : ''}
+			}
+		},
     },
     module: {
         loaders: [
