@@ -25,7 +25,6 @@ class ToDoList extends React.PureComponent {
 			this.setState({
 				loading: false
 			})
-			this.props.loadToDos()
 		})
 	}
 

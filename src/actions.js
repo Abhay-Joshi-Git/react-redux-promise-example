@@ -1,10 +1,14 @@
 import { createAction } from "redux-actions";
 import { loadToDosAPI, addTodo } from "./APIs";
 
-export const addToDo = (todo) => ({
-        type: "ADD",
-        payload: addTodo(todo)
-});
+export const addToDo = (todo) => {
+	return addTodo(todo).then(() => {
+		return {
+			type: "ADD",
+			payload: todo
+		}
+	})
+};
 
 export const loadToDos = createAction('loadTodos', loadToDosAPI);
 
